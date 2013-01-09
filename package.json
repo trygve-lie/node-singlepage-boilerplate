@@ -1,0 +1,26 @@
+{
+  "name": "singlepage",
+  "version": "0.0.1",
+  "private": true,
+  "config" : {
+    "port" : "8080"
+  },
+  "scripts": {
+    "start": "node ./bin/server.js",
+    "prepublish" : "jake build"
+  },
+  "engines": {
+    "node": "0.8.x"
+  },
+  "dependencies": {
+    "express": "3.x"
+  },
+  "devDependencies": {
+    "jake": "latest",
+    "jshint": "latest",
+    "jsdom": "latest",
+    "uglify-js": "latest",
+    "clean-css": "latest",
+    "css-b64-images": "latest"
+  }
+}
