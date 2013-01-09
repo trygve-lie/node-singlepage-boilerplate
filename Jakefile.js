@@ -20,7 +20,11 @@ var package         = JSON.parse(fs.readFileSync('./package.json')),
 
     applicationCache = {
         "CACHE MANIFEST"    : [],
-        "CACHE"             : [],
+        "CACHE"             : [
+            'gfx/icon/app.png',
+            'gfx/splash/app.png',
+            'gfx/example.jpg'
+        ],
         "NETWORK"           : ['*'],
         "FALLBACK"          : []
     },
