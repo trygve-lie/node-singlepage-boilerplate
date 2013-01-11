@@ -76,7 +76,7 @@ The build script will take the index.html file in the source directory and analy
  - Remove all whitespace between tags in index.html. Child elements of pre and textinput tags will be left untouched.
  - Fix semantic errors in the index.html.
  - Minify all inline javascript and css with the same minifying tools used for minifying the .js and .css files.
- - Create an application.cache manifest file which holds a reference to the files put in the build directory and append a reference to it in the index.html file.
+ - Create an application.cache manifest file which holds a reference to the files put in the dist directory and append a reference to it in the index.html file.
 
 ### Why a build process?
 
