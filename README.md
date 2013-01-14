@@ -63,7 +63,7 @@ Any REST API, sockets or long polling connections you implement in the server wi
 
 It is very easy to switch to serving the pre build web application in development so one can test that everything is as it should after the build process.
 
-### The build script
+### [The build script][the-build-script]
 
 The build script will take the index.html file in the source directory and analyze its content. Based on what it finds, the script it will:
 
@@ -155,4 +155,4 @@ This is a boilerplate. Your supposed to modify this to suite your needs. Hopeful
  - ```/bin/``` - This directory keeps the http / application server in form of a ```server.js```. This is where you should build your REST API or what ever the server should serve dynamicly.
  - ```/assets/``` - This directory holds files which should not go into the build process. When starting the http / application server, this directory will be _mounted_ at root of the http server and any files under this directory will be staticly served.
  - ```/package.json``` - In fact this boilerplate is a node.js module. This file is the [module configuration](https://npmjs.org/doc/json.html) and holds name of the module, dependencies etc.
- - ```/Jakefile.js``` - This is the build script which does all the work defined under [#the-build-script](the build script) above.
+ - ```/Jakefile.js``` - This is the build script which does all the work defined under [the-build-script](the build script) above.
