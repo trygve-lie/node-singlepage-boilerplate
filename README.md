@@ -142,3 +142,12 @@ npm config set singlepage:prod true
 # Switching to dev mode
 npm config set singlepage:prod false
 ```
+
+
+## Detailed overview
+
+This is a boilerplate. Your supposed to modify this to suite your needs. Hopefully what you will be modifying the most is the server and html, css, javascript and graphics in the source. Here is an overview of the roles of each file / directory.
+
+## Direcotries and files
+
+ - ```src``` - This is the source directory where uncompressed files is kept.
