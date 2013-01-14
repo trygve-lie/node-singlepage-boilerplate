@@ -68,9 +68,9 @@ It is very easy to switch to serving the pre build web application in developmen
 The build script will take the index.html file in the source directory and analyze its content. Based on what it finds, the script it will:
 
  - Create a build located in the dist directory. The source directory will be left untouched.
- - Take all references to local .js files and concatinate the files into one .js file. In the index.html file, the DOM elements refering to the previous .js files will be removed and replaced with a new DOM element refering to the concatinated .js file.
+ - Take all references to local .js files in the index.html and concatinate the files into one .js file. In the index.html file, the DOM elements refering to the previous .js files will be removed and replaced with a new DOM element refering to the concatinated .js file.
  - Minify the concatinated .js file with the latest version of [UglifyJS](https://github.com/mishoo/UglifyJS2).
- - Take all references to local .css files and concatinate the files into one .css file. In the index.html file, the DOM elements refering to the previous .css files will be removed and replaced with a new DOM element refering to the concatinated .css file.
+ - Take all references to local .css files in the index.html and concatinate the files into one .css file. In the index.html file, the DOM elements refering to the previous .css files will be removed and replaced with a new DOM element refering to the concatinated .css file.
  - Minify the concatinated .css file with the latest version of [clean-css](https://github.com/GoalSmashers/clean-css).
  - Base64 encode all graphics under 4k in size refered to in the .css files replaced the reference with a [data URI](http://en.wikipedia.org/wiki/Data_URI_scheme) holding the base64 encoded version.
  - Remove all whitespace between tags in index.html. Child elements of pre and textinput tags will be left untouched.
@@ -80,8 +80,21 @@ The build script will take the index.html file in the source directory and analy
 
 ### Why a build process?
 
-This could be done on run time by the server in production. A build process removes the need for running such a process run time and leaves the server to just serve static files and provide data access. Iow: lett to do for the server.
+This could be done on run time by the server in production. A build process removes the need for running such a process run time and leaves the server to just serve static files and provide data access. Iow: less to do for the server.
 
 A very good reason why one would like to build a package of files is that the build can be gziped and uploaded to services such as [PhoneGap Build](https://build.phonegap.com/) to produce instalable iOS, Android, Win etc applications.
 
 The same gzipped package can also go into web application stores such as [Google Web Store](https://chrome.google.com/webstore/) and [Mozilla Marketplace](http://www.mozilla.org/en-US/apps/) etc.
+
+
+## Getting up and running
+
+Its fairly easy getting up and running. The first thing you need is to [fork this repo](https://help.github.com/articles/fork-a-repo) into your desired destination. Where you select to fork into is from now on in this document refered to as "project root".
+
+You also need node.js. [Download and install node.js]([fork](https://help.github.com/articles/fork-a-repo)) according to their documentation.
+
+In your project root, type the following command to install the different libraries needed by the build script and http server to work:
+
+```bash
+npm install
+```
