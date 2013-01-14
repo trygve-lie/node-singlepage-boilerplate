@@ -105,4 +105,40 @@ You should now be able to start the local http server by running:
 npm start
 ```
 
-You should then get served the files found in the _src_ directory under _project root_ at [http://localhost:8080/](http://localhost:8080/).
+You should then get served the files found in the *src* directory under _project root_ at [http://localhost:8080/](http://localhost:8080/).
+
+### Creating a build
+
+The build script is written in [Jake](https://github.com/mde/jake). To create a build you need to run the Jake build command. This is done by running the following command in your _project root_:
+
+```bash
+jake build
+```
+
+The build should now be found in the *dist* directory under your _project root_.
+
+### Serving the build locally
+
+After creating a build you can serve the build locally to see if it acts as it should. We do so by telling our http server that it should run in production mode. You do so by running the folloing command followed by restaring / staring the app again:
+
+```bash
+npm config set <nameOfYourApp>:prod true
+```
+
+Then the files found in the *dist* directory under your _project root_ should be served at [http://localhost:8080/](http://localhost:8080/).
+
+You can switch back to serving the source files in *src* directory under your _project root_ again by the following command:
+
+```bash
+npm config set <nameOfYourApp>:prod false
+```
+
+In the above commands you need to replace the <nameOfYourApp> with the name of the app which is defined under the "name" attribute in the package.json file in your _project root_. In other words, the commands will look something like this (default builerplate name):
+
+```bash
+# Switching to prod mode
+npm config set singlepage:prod true
+
+# Switching to dev mode
+npm config set singlepage:prod false
+```
