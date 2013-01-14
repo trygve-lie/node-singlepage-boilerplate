@@ -89,12 +89,20 @@ The same gzipped package can also go into web application stores such as [Google
 
 ## Getting up and running
 
-Its fairly easy getting up and running. The first thing you need is to [fork this repo](https://help.github.com/articles/fork-a-repo) into your desired destination. Where you select to fork into is from now on in this document refered to as "project root".
+Its fairly easy getting up and running. The first thing you need is to [fork this repo](https://help.github.com/articles/fork-a-repo) into your desired destination. Where you select to fork into is from now on in this document refered to as _project root_.
 
-You also need node.js. [Download and install node.js]([fork](https://help.github.com/articles/fork-a-repo)) according to their documentation.
+You also need node.js. [Download and install node.js]([fork](https://help.github.com/articles/fork-a-repo) according to their documentation.
 
-In your project root, type the following command to install the different libraries needed by the build script and http server to work:
+In your _project root_, type the following command to install the different libraries needed by the build script and http server to work:
 
 ```bash
 npm install
 ```
+
+You should now be able to start the local http server by running:
+
+```bash
+npm start
+```
+
+You should then get served the files found in the _src_ directory under _project root_ at [http://localhost:8080/](http://localhost:8080/).
