@@ -148,6 +148,8 @@ npm config set singlepage:prod false
 
 This is a boilerplate. Your supposed to modify this to suite your needs. Hopefully what you will be modifying the most is the server and html, css, javascript and graphics in the source. Here is an overview of the roles of each file / directory.
 
-## Direcotries and files
+## Directories and files
 
- - ```src``` - This is the source directory where uncompressed files is kept.
+ - ```src``` - This is the source directory where source files should go. The build script will read from this directory.
+ - ```dist``` - This is the build or distribution directory. This is the place where the build script will place the finished build. This is the files which is supposed to be put in production.
+ - ```bin``` - This directory keeps the http / application server in form of a ```server.js```.
