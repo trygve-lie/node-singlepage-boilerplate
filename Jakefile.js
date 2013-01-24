@@ -49,9 +49,9 @@ var package         = JSON.parse(fs.readFileSync('./package.json')),
     // Output
     outputFileName  = {
         html        : 'index.html',
-        js          : 'app.min.js',
-        map         : 'app.min.js.map',
-        css         : 'app.min.css',
+        js          : 'app.min.' + package.version + '.js',
+        map         : 'app.min.' + package.version + '.js.map',
+        css         : 'app.min.' + package.version + '.css',
         manifest    : 'manifest.appcache'
     },
 
@@ -85,6 +85,12 @@ var package         = JSON.parse(fs.readFileSync('./package.json')),
         map         : outputWwwPath.map + outputFileName.map,
         css         : outputWwwPath.css + outputFileName.css,
         manifest    : outputWwwPath.manifest  + outputFileName.manifest
+    },
+
+    // Adjust partis in the document. Normaly tweaking DOM values like
+    // adding a version number to a DOM element.
+    adjust          = {
+        versionId   : 'version'
     };
 
 
@@ -236,6 +242,9 @@ namespace("min", function(){
                         });
                         el.innerHTML = minified.code;
                     });
+
+                    // Append version number to DOM element with the id "version"
+                    doc.getElementById(adjust.versionId).innerHTML = package.version;
 
                     // Walk the documents DOM and clone _only_ element nodes and text nodes which does not contain
                     // just whitespace into a new document fragment. This will result in a document fragment which

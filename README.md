@@ -144,7 +144,7 @@ npm config set singlepage:prod false
 ```
 
 
-## Detailed overview
+### Detailed overview
 
 This is a boilerplate. Your supposed to modify this to suite your needs. Hopefully what you will be modifying the most is the server and html, css, javascript and graphics in the source. Here is an overview of the roles of each file / directory.
 
