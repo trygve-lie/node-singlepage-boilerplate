@@ -211,14 +211,16 @@ namespace("min", function(){
                         newDoc  = doc.createDocumentFragment();
 
                     // Remove all external js files
-                    doc.querySelectorAll('script[src]').forEach(function(el){
-                        removeElement(el);
-                    });
+                    var scriptFiles = doc.querySelectorAll('script[src]');
+                    for(var i = 0; i < scriptFiles.length; i += 1) {
+                        removeElement(scriptFiles[i]);
+                    }
 
                     // Remove all external css files
-                    doc.querySelectorAll('link[rel=stylesheet]').forEach(function(el){
-                        removeElement(el);
-                    });
+                    var styleFiles = doc.querySelectorAll('script[src]');
+                    for(var l = 0; l < styleFiles.length; l += 1) {
+                        removeElement(styleFiles[l]);
+                    }
 
                     // Append ApplicationCache manifest file
                     var manifestEl = doc.querySelectorAll('html')[0];
@@ -236,12 +238,13 @@ namespace("min", function(){
                     doc.head.appendChild(cssEl);
 
                     // Take all inline javascript files, minify them and add them back
-                    doc.querySelectorAll('script[type*=javascript]').forEach(function(el){
-                        var minified = uglify.minify(el.innerHTML, {
+                    var inlineScriptFiles = doc.querySelectorAll('script[type*=javascript]');
+                    for(var li = 0; li < inlineScriptFiles.length; li += 1) {
+                        var minified = uglify.minify(inlineScriptFiles[li].innerHTML, {
                             fromString: true
                         });
-                        el.innerHTML = minified.code;
-                    });
+                        inlineScriptFiles[li].innerHTML = minified.code;
+                    }
 
                     // Append version number to DOM element with the id "version"
                     doc.getElementById(adjust.versionId).innerHTML = package.version;
@@ -306,9 +309,13 @@ namespace("url", function(){
                     var doc     = window.document,
                         files   = [];
 
-                    doc.querySelectorAll('script[src]').forEach(function(el){
-                        files.push(inputPath.root + el.getAttribute('src'));
-                    });
+                    var scriptFiles = doc.querySelectorAll('script[src]');
+                    for(var i = 0; i < scriptFiles.length; i += 1) {
+                        var file = inputPath.root + scriptFiles[i].getAttribute('src');
+                        if ( fs.existsSync(file) ) {
+                            files.push(file);
+                        }
+                    }
 
                     console.log('document contains ' + files.length + ' external js files');
                     if (nextTask) {
@@ -340,9 +347,13 @@ namespace("url", function(){
                     var doc     = window.document,
                         files   = [];
 
-                    doc.querySelectorAll('link[rel=stylesheet]').forEach(function(el){
-                        files.push(inputPath.root + el.getAttribute('href'));
-                    });
+                    var styleFiles = doc.querySelectorAll('link[rel=stylesheet]');
+                    for(var i = 0; i < styleFiles.length; i += 1) {
+                        var file = inputPath.root + styleFiles[i].getAttribute('href');
+                        if ( fs.existsSync(file) ) {
+                            files.push(file);
+                        }
+                    }
 
                     console.log('document contains ' + files.length + ' external css files');
                     if (nextTask) {
