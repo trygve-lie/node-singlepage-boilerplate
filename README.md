@@ -1,5 +1,7 @@
 # Node.js boilerplate for building singlepage web apps
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/trygve-lie/node-singlepage-boilerplate.svg)](https://greenkeeper.io/)
+
 This is a node.js [boilerplate](http://en.wikipedia.org/wiki/Boilerplate_code) for building singlepage web applications. It is not a library or a reusable module. It is a repo you can [fork](https://help.github.com/articles/fork-a-repo) and use as a starting point for a new project. It is intended that you will tweak and adjust files and directories in this repo so it fits your needs.
 
 This is a boilerplate used as the fundamental structure to develop and serve singlepage applications at [A-Media AS](http://amedia.no/?page_id=16).
